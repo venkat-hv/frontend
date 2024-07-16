@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get('/', (req, res) => {
-  return res.send('HI')
+  return res.render('home')
 })
 
 
