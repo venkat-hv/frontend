@@ -57,7 +57,7 @@ app.get('/validate', (req, res) => {
     console.log('headers: ', response.headers)
     console.log('data: ', response.data)
 
-    return res.json({ ok: true, data: response.data })
+    return res.json({ ok: true, data: response.data, headers: response.headers })
   } 
   catch (error) {
     console.log('Error in validate: ', error)
