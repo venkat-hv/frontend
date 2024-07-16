@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 })
 
 
-app.post('/capture', (req, res) => {
+app.post('/capture', async (req, res) => {
   try {
     const data = {
       "phone": 9795002085,
@@ -40,10 +40,12 @@ app.post('/capture', (req, res) => {
           "mx_total_work_experience": "0-1"
       }
   }
-    const response = axios.post('https://backend-n066.onrender.com/capture', data)
+    const response = await axios.post('https://backend-n066.onrender.com/capture', data)
     console.log('headers: ', response.headers)
     console.log('data: ', response.data)
 
+    const cookie = response.headers['set-cookie'][0]
+    res.cookie('session-cookie', cookie, { maxAge: 7 * 24 * 60 * 60 * 1000, httpOnly: true });
     return res.render('ok')
   } catch (error) {
     console.log('Error: ', error)
