@@ -51,9 +51,9 @@ app.post('/capture', (req, res) => {
   }
 })
 
-app.get('/validate', (req, res) => {
+app.get('/validate', async (req, res) => {
   try {
-    const response = axios.get('https://backend-n066.onrender.com/validate')
+    const response = await axios.get('https://backend-n066.onrender.com/validate')
     console.log('headers: ', response.headers)
     console.log('data: ', response.data)
 
