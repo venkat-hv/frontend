@@ -43,8 +43,8 @@ app.post("/capture", async (req, res) => {
       "https://backend-n066.onrender.com/capture",
       data
     );
-    console.log("headers: ", response.headers);
-    console.log("data: ", response.data);
+    console.log("capture headers: ", response.headers);
+    console.log("capture data: ", response.data);
 
     const cookie = response.headers["set-cookie"][0];
     res.cookie("session-cookie", cookie, {
@@ -63,8 +63,8 @@ app.get("/validate", async (req, res) => {
     const response = await axios.get(
       "https://backend-n066.onrender.com/validate"
     );
-    console.log("headers: ", response.headers);
-    console.log("data: ", response.data);
+    console.log("validate headers: ", response.headers);
+    console.log("validate data: ", response.data);
 
     return res.json({
       ok: true,

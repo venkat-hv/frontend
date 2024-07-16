@@ -15,8 +15,7 @@
     async function test(){
         try {
             const response = await fetch('/validate')
-            console.log('data: ', response.data)
-            console.log('headers: ', response.headers)
+            console.log('response: ', response)
         } 
         catch (error) {
             console.log('Error: ', error)
